@@ -19,7 +19,7 @@ class Slack extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'maknz.slack';
+        return 'nguyenanhung.slack';
     }
 
 }

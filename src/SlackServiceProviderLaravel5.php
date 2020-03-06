@@ -32,7 +32,7 @@ class SlackServiceProviderLaravel5 extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__ . '/config/config.php', 'slack');
 
-        $this->app['maknz.slack'] = $this->app->share(function ($app) {
+        $this->app['nguyenanhung.slack'] = $this->app->share(function ($app) {
             return new Client(
                 $app['config']->get('slack.endpoint'),
                 [
@@ -49,7 +49,7 @@ class SlackServiceProviderLaravel5 extends ServiceProvider
             );
         });
 
-        $this->app->bind('nguyenanhung\Slack\Client', 'maknz.slack');
+        $this->app->bind('nguyenanhung\Slack\Client', 'nguyenanhung.slack');
     }
 
 }

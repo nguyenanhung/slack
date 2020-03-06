@@ -20,7 +20,7 @@ class SlackServiceProviderLaravel4 extends ServiceProvider
      */
     public function boot()
     {
-        $this->package('maknz/slack', NULL, __DIR__);
+        $this->package('nguyenanhung/slack', NULL, __DIR__);
     }
 
     /**
@@ -30,7 +30,7 @@ class SlackServiceProviderLaravel4 extends ServiceProvider
      */
     public function register()
     {
-        $this->app['maknz.slack'] = $this->app->share(function ($app) {
+        $this->app['nguyenanhung.slack'] = $this->app->share(function ($app) {
             $allow_markdown = $app['config']->get('slack::allow_markdown');
 
             $markdown_in_attachments = $app['config']->get('slack::markdown_in_attachments');
@@ -53,7 +53,7 @@ class SlackServiceProviderLaravel4 extends ServiceProvider
             );
         });
 
-        $this->app->bind('nguyenanhung\Slack\Client', 'maknz.slack');
+        $this->app->bind('nguyenanhung\Slack\Client', 'nguyenanhung.slack');
     }
 
 }

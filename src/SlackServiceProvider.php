@@ -92,7 +92,7 @@ class SlackServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return ['maknz.slack'];
+        return ['nguyenanhung.slack'];
     }
 
 }
