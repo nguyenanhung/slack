@@ -378,7 +378,12 @@ class Client
 
         $encoded = json_encode($payload, JSON_UNESCAPED_UNICODE);
 
-        $this->guzzle->post($this->endpoint, ['body' => $encoded]);
+        $this->guzzle->post($this->endpoint, [
+            'body' => $encoded,
+            'curl' => array(
+                CURLOPT_SSLVERSION => CURL_SSLVERSION_TLSv1_2
+            )
+        ]);
     }
 
     /**
