@@ -1,4 +1,14 @@
-<?php namespace nguyenanhung\Slack;
+<?php
+/**
+ * Project slack
+ * Created by PhpStorm
+ * User: 713uk13m <dev@nguyenanhung.com>
+ * Copyright: 713uk13m <dev@nguyenanhung.com>
+ * Date: 08/20/2021
+ * Time: 15:15
+ */
+
+namespace nguyenanhung\Slack;
 
 use InvalidArgumentException;
 
