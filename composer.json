@@ -24,6 +24,7 @@
         "ext-curl": "*"
     },
     "require-dev": {
+        "roave/security-advisories": "dev-latest",
         "phpunit/phpunit": "4.2.*",
         "mockery/mockery": "0.9.*"
     },

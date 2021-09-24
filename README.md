@@ -1,12 +1,17 @@
 # Slack
 
-[![Build Status](https://travis-ci.org/nguyenanhung/slack.svg?branch=master)](https://travis-ci.org/nguyenanhung/slack)
+[![Latest Stable Version](http://poser.pugx.org/nguyenanhung/slack/v)](https://packagist.org/packages/nguyenanhung/slack) [![Total Downloads](http://poser.pugx.org/nguyenanhung/slack/downloads)](https://packagist.org/packages/nguyenanhung/slack) [![Latest Unstable Version](http://poser.pugx.org/nguyenanhung/slack/v/unstable)](https://packagist.org/packages/nguyenanhung/slack) [![License](http://poser.pugx.org/nguyenanhung/slack/license)](https://packagist.org/packages/nguyenanhung/slack) [![PHP Version Require](http://poser.pugx.org/nguyenanhung/slack/require/php)](https://packagist.org/packages/nguyenanhung/slack)
 
 A simple PHP package for sending messages to [Slack](https://slack.com) with [incoming webhooks](https://my.slack.com/services/new/incoming-webhook), focussed on ease-of-use and elegant syntax. Includes Laravel 4 and 5 support out of the box.
 
 ## Requirements
 
 * PHP 5.4 or greater
+
+## Version
+
+- [x] V1.x support all PHP version `>=5.6`
+- [x] V2.x support all PHP version `>=7.0`
 
 ## Installation
 
@@ -81,29 +86,29 @@ $client = new nguyenanhung\Slack\Client('http://your.slack.endpoint', $settings)
 All settings are optional, but are a convenient way of specifying how the client should behave beyond the defaults.
 
 * `channel`: the default channel that messages will be sent to
-   * string
-	* default: the setting on the webhook
+    * string
+    * default: the setting on the webhook
 * `username`: the default username that messages will be sent from
-	* string
-	* default: the setting on the webhook
+    * string
+    * default: the setting on the webhook
 * `icon`: the default icon messages will be sent with, either :emoji: or a URL to an image
-   * string
-   * default: the setting on the webhook
+    * string
+    * default: the setting on the webhook
 * `link_names`: whether names like @regan or #accounting should be linked
-   * bool
-   * default: `false`
+    * bool
+    * default: `false`
 * `unfurl_links`: whether Slack should unfurl text-based URLs
-   * bool
-   * default: `false`
+    * bool
+    * default: `false`
 * `unfurl_media`: whether Slack should unfurl media-based URLs
-   * bool
-   * default: `true`
+    * bool
+    * default: `true`
 * `allow_markdown`: whether Markdown should be parsed in messages
-	* bool
-	* default: `true`
+    * bool
+    * default: `true`
 * `markdown_in_attachments`: which attachment fields should have Markdown parsed
-   * array
-   * default: `[]`
+    * array
+    * default: `[]`
 
 ### Sending messages
 
@@ -120,6 +125,7 @@ Slack::send('Hello world!');
 ```
 
 #### Sending a message to a non-default channel
+
 ```php
 // With an instantiated client
 $client->to('#accounting')->send('Are we rich yet?');
@@ -129,16 +135,19 @@ Slack::to('#accounting')->send('Are we rich yet?');
 ```
 
 #### Sending a message to a user
+
 ```php
 $client->to('@regan')->send('Yo!');
 ```
 
 #### Sending a message to a channel as a different username
+
 ```php
 $client->from('Jake the Dog')->to('@FinnTheHuman')->send('Adventure time!');
 ```
 
 #### Sending a message with a different icon
+
 ```php
 // Either with a Slack emoji
 $client->to('@regan')->withIcon(':ghost:')->send('Boo!');
@@ -285,4 +294,5 @@ $attachment->setFields($bigArrayOfFields);
 
 ## Contributing
 
-If you're having problems, spot a bug, or have a feature suggestion, please log and issue on Github. If you'd like to have a crack yourself, fork the package and make a pull request. Please include tests for any added or changed functionality. If it's a bug, include a regression test.
+If you're having problems, spot a bug, or have a feature suggestion, please log and issue on Github. If you'd like to have a crack yourself, fork the package and make a pull request. Please include tests for any added or changed functionality. If
+it's a bug, include a regression test.
