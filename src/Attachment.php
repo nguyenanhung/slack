@@ -123,31 +123,57 @@ class Attachment
      */
     public function __construct(array $attributes)
     {
-        if (isset($attributes['fallback'])) $this->setFallback($attributes['fallback']);
+        if (isset($attributes['fallback'])) {
+            $this->setFallback($attributes['fallback']);
+        }
 
-        if (isset($attributes['text'])) $this->setText($attributes['text']);
+        if (isset($attributes['text'])) {
+            $this->setText($attributes['text']);
+        }
 
-        if (isset($attributes['image_url'])) $this->setImageUrl($attributes['image_url']);
+        if (isset($attributes['image_url'])) {
+            $this->setImageUrl($attributes['image_url']);
+        }
 
-        if (isset($attributes['thumb_url'])) $this->setThumbUrl($attributes['thumb_url']);
+        if (isset($attributes['thumb_url'])) {
+            $this->setThumbUrl($attributes['thumb_url']);
+        }
 
-        if (isset($attributes['pretext'])) $this->setPretext($attributes['pretext']);
+        if (isset($attributes['pretext'])) {
+            $this->setPretext($attributes['pretext']);
+        }
 
-        if (isset($attributes['color'])) $this->setColor($attributes['color']);
+        if (isset($attributes['color'])) {
+            $this->setColor($attributes['color']);
+        }
 
-        if (isset($attributes['fields'])) $this->setFields($attributes['fields']);
+        if (isset($attributes['fields'])) {
+            $this->setFields($attributes['fields']);
+        }
 
-        if (isset($attributes['mrkdwn_in'])) $this->setMarkdownFields($attributes['mrkdwn_in']);
+        if (isset($attributes['mrkdwn_in'])) {
+            $this->setMarkdownFields($attributes['mrkdwn_in']);
+        }
 
-        if (isset($attributes['title'])) $this->setTitle($attributes['title']);
+        if (isset($attributes['title'])) {
+            $this->setTitle($attributes['title']);
+        }
 
-        if (isset($attributes['title_link'])) $this->setTitleLink($attributes['title_link']);
+        if (isset($attributes['title_link'])) {
+            $this->setTitleLink($attributes['title_link']);
+        }
 
-        if (isset($attributes['author_name'])) $this->setAuthorName($attributes['author_name']);
+        if (isset($attributes['author_name'])) {
+            $this->setAuthorName($attributes['author_name']);
+        }
 
-        if (isset($attributes['author_link'])) $this->setAuthorLink($attributes['author_link']);
+        if (isset($attributes['author_link'])) {
+            $this->setAuthorLink($attributes['author_link']);
+        }
 
-        if (isset($attributes['author_icon'])) $this->setAuthorIcon($attributes['author_icon']);
+        if (isset($attributes['author_icon'])) {
+            $this->setAuthorIcon($attributes['author_icon']);
+        }
     }
 
     /**
@@ -155,7 +181,7 @@ class Attachment
      *
      * @return string
      */
-    public function getFallback()
+    public function getFallback(): string
     {
         return $this->fallback;
     }
@@ -167,7 +193,7 @@ class Attachment
      *
      * @return $this
      */
-    public function setFallback($fallback)
+    public function setFallback(string $fallback): Attachment
     {
         $this->fallback = $fallback;
 
@@ -179,7 +205,7 @@ class Attachment
      *
      * @return string
      */
-    public function getText()
+    public function getText(): string
     {
         return $this->text;
     }
@@ -191,7 +217,7 @@ class Attachment
      *
      * @return $this
      */
-    public function setText($text)
+    public function setText(string $text): Attachment
     {
         $this->text = $text;
 
@@ -203,7 +229,7 @@ class Attachment
      *
      * @return string
      */
-    public function getImageUrl()
+    public function getImageUrl(): string
     {
         return $this->image_url;
     }
@@ -215,7 +241,7 @@ class Attachment
      *
      * @return $this
      */
-    public function setImageUrl($image_url)
+    public function setImageUrl(string $image_url): Attachment
     {
         $this->image_url = $image_url;
 
@@ -227,7 +253,7 @@ class Attachment
      *
      * @return string
      */
-    public function getThumbUrl()
+    public function getThumbUrl(): string
     {
         return $this->thumb_url;
     }
@@ -239,7 +265,7 @@ class Attachment
      *
      * @return $this
      */
-    public function setThumbUrl($thumb_url)
+    public function setThumbUrl(string $thumb_url): Attachment
     {
         $this->thumb_url = $thumb_url;
 
@@ -251,7 +277,7 @@ class Attachment
      *
      * @return string
      */
-    public function getPretext()
+    public function getPretext(): string
     {
         return $this->pretext;
     }
@@ -263,7 +289,7 @@ class Attachment
      *
      * @return $this
      */
-    public function setPretext($pretext)
+    public function setPretext(string $pretext): Attachment
     {
         $this->pretext = $pretext;
 
@@ -275,7 +301,7 @@ class Attachment
      *
      * @return string
      */
-    public function getColor()
+    public function getColor(): string
     {
         return $this->color;
     }
@@ -287,7 +313,7 @@ class Attachment
      *
      * @return $this
      */
-    public function setColor($color)
+    public function setColor(string $color): Attachment
     {
         $this->color = $color;
 
@@ -299,7 +325,7 @@ class Attachment
      *
      * @return string
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -311,7 +337,7 @@ class Attachment
      *
      * @return $this
      */
-    public function setTitle($title)
+    public function setTitle(string $title): Attachment
     {
         $this->title = $title;
 
@@ -323,7 +349,7 @@ class Attachment
      *
      * @return string
      */
-    public function getTitleLink()
+    public function getTitleLink(): string
     {
         return $this->title_link;
     }
@@ -335,7 +361,7 @@ class Attachment
      *
      * @return $this
      */
-    public function setTitleLink($title_link)
+    public function setTitleLink(string $title_link): Attachment
     {
         $this->title_link = $title_link;
 
@@ -347,7 +373,7 @@ class Attachment
      *
      * @return string
      */
-    public function getAuthorName()
+    public function getAuthorName(): string
     {
         return $this->author_name;
     }
@@ -359,7 +385,7 @@ class Attachment
      *
      * @return $this
      */
-    public function setAuthorName($author_name)
+    public function setAuthorName(string $author_name): Attachment
     {
         $this->author_name = $author_name;
 
@@ -371,7 +397,7 @@ class Attachment
      *
      * @return string
      */
-    public function getAuthorLink()
+    public function getAuthorLink(): string
     {
         return $this->author_link;
     }
@@ -383,7 +409,7 @@ class Attachment
      *
      * @return $this
      */
-    public function setAuthorLink($author_link)
+    public function setAuthorLink(string $author_link): Attachment
     {
         $this->author_link = $author_link;
 
@@ -395,7 +421,7 @@ class Attachment
      *
      * @return string
      */
-    public function getAuthorIcon()
+    public function getAuthorIcon(): string
     {
         return $this->author_icon;
     }
@@ -407,7 +433,7 @@ class Attachment
      *
      * @return $this
      */
-    public function setAuthorIcon($author_icon)
+    public function setAuthorIcon(string $author_icon): Attachment
     {
         $this->author_icon = $author_icon;
 
@@ -419,7 +445,7 @@ class Attachment
      *
      * @return array
      */
-    public function getFields()
+    public function getFields(): array
     {
         return $this->fields;
     }
@@ -431,7 +457,7 @@ class Attachment
      *
      * @return $this
      */
-    public function setFields(array $fields)
+    public function setFields(array $fields): Attachment
     {
         $this->clearFields();
 
@@ -449,13 +475,15 @@ class Attachment
      *
      * @return $this
      */
-    public function addField($field)
+    public function addField($field): Attachment
     {
         if ($field instanceof AttachmentField) {
             $this->fields[] = $field;
 
             return $this;
-        } elseif (is_array($field)) {
+        }
+
+        if (is_array($field)) {
             $this->fields[] = new AttachmentField($field);
 
             return $this;
@@ -469,7 +497,7 @@ class Attachment
      *
      * @return $this
      */
-    public function clearFields()
+    public function clearFields(): Attachment
     {
         $this->fields = [];
 
@@ -482,7 +510,7 @@ class Attachment
      *
      * @return array
      */
-    public function getMarkdownFields()
+    public function getMarkdownFields(): array
     {
         return $this->markdown_fields;
     }
@@ -495,7 +523,7 @@ class Attachment
      *
      * @return $this
      */
-    public function setMarkdownFields(array $fields)
+    public function setMarkdownFields(array $fields): Attachment
     {
         $this->markdown_fields = $fields;
 
@@ -507,7 +535,7 @@ class Attachment
      *
      * @return array
      */
-    public function toArray()
+    public function toArray(): array
     {
         $data = [
             'fallback'    => $this->getFallback(),
@@ -535,11 +563,13 @@ class Attachment
      *
      * @return array
      */
-    protected function getFieldsAsArrays()
+    protected function getFieldsAsArrays(): array
     {
         $fields = [];
 
-        foreach ($this->getFields() as $field) $fields[] = $field->toArray();
+        foreach ($this->getFields() as $field) {
+            $fields[] = $field->toArray();
+        }
 
         return $fields;
     }

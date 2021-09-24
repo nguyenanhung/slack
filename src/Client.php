@@ -55,21 +55,21 @@ class Client
      *
      * @var boolean
      */
-    protected $link_names = FALSE;
+    protected $link_names = false;
 
     /**
      * Whether Slack should unfurl text-based URLs
      *
      * @var boolean
      */
-    protected $unfurl_links = FALSE;
+    protected $unfurl_links = false;
 
     /**
      * Whether Slack should unfurl media URLs
      *
      * @var boolean
      */
-    protected $unfurl_media = TRUE;
+    protected $unfurl_media = true;
 
     /**
      * Whether message text should be formatted with Slack's
@@ -77,7 +77,7 @@ class Client
      *
      * @var boolean
      */
-    protected $allow_markdown = TRUE;
+    protected $allow_markdown = true;
 
     /**
      * The attachment fields which should be formatted with
@@ -105,25 +105,41 @@ class Client
      * @author   : 713uk13m <dev@nguyenanhung.com>
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      */
-    public function __construct($endpoint, array $attributes = [], Guzzle $guzzle = NULL)
+    public function __construct($endpoint, array $attributes = [], Guzzle $guzzle = null)
     {
         $this->endpoint = $endpoint;
 
-        if (isset($attributes['channel'])) $this->setDefaultChannel($attributes['channel']);
+        if (isset($attributes['channel'])) {
+            $this->setDefaultChannel($attributes['channel']);
+        }
 
-        if (isset($attributes['username'])) $this->setDefaultUsername($attributes['username']);
+        if (isset($attributes['username'])) {
+            $this->setDefaultUsername($attributes['username']);
+        }
 
-        if (isset($attributes['icon'])) $this->setDefaultIcon($attributes['icon']);
+        if (isset($attributes['icon'])) {
+            $this->setDefaultIcon($attributes['icon']);
+        }
 
-        if (isset($attributes['link_names'])) $this->setLinkNames($attributes['link_names']);
+        if (isset($attributes['link_names'])) {
+            $this->setLinkNames($attributes['link_names']);
+        }
 
-        if (isset($attributes['unfurl_links'])) $this->setUnfurlLinks($attributes['unfurl_links']);
+        if (isset($attributes['unfurl_links'])) {
+            $this->setUnfurlLinks($attributes['unfurl_links']);
+        }
 
-        if (isset($attributes['unfurl_media'])) $this->setUnfurlMedia($attributes['unfurl_media']);
+        if (isset($attributes['unfurl_media'])) {
+            $this->setUnfurlMedia($attributes['unfurl_media']);
+        }
 
-        if (isset($attributes['allow_markdown'])) $this->setAllowMarkdown($attributes['allow_markdown']);
+        if (isset($attributes['allow_markdown'])) {
+            $this->setAllowMarkdown($attributes['allow_markdown']);
+        }
 
-        if (isset($attributes['markdown_in_attachments'])) $this->setMarkdownInAttachments($attributes['markdown_in_attachments']);
+        if (isset($attributes['markdown_in_attachments'])) {
+            $this->setMarkdownInAttachments($attributes['markdown_in_attachments']);
+        }
 
         $this->guzzle = $guzzle ? : new Guzzle;
     }
@@ -140,7 +156,7 @@ class Client
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 3/6/20 11:47
      */
-    public function __call($name, $arguments)
+    public function __call(string $name, array $arguments)
     {
         $message = $this->createMessage();
 
@@ -154,7 +170,7 @@ class Client
      *
      * @return string
      */
-    public function getEndpoint()
+    public function getEndpoint(): string
     {
         return $this->endpoint;
     }
@@ -166,7 +182,7 @@ class Client
      *
      * @return void
      */
-    public function setEndpoint($endpoint)
+    public function setEndpoint(string $endpoint)
     {
         $this->endpoint = $endpoint;
     }
@@ -176,7 +192,7 @@ class Client
      *
      * @return string
      */
-    public function getDefaultChannel()
+    public function getDefaultChannel(): string
     {
         return $this->channel;
     }
@@ -188,7 +204,7 @@ class Client
      *
      * @return void
      */
-    public function setDefaultChannel($channel)
+    public function setDefaultChannel(string $channel)
     {
         $this->channel = $channel;
     }
@@ -198,7 +214,7 @@ class Client
      *
      * @return string
      */
-    public function getDefaultUsername()
+    public function getDefaultUsername(): string
     {
         return $this->username;
     }
@@ -210,7 +226,7 @@ class Client
      *
      * @return void
      */
-    public function setDefaultUsername($username)
+    public function setDefaultUsername(string $username)
     {
         $this->username = $username;
     }
@@ -220,7 +236,7 @@ class Client
      *
      * @return string
      */
-    public function getDefaultIcon()
+    public function getDefaultIcon(): string
     {
         return $this->icon;
     }
@@ -232,7 +248,7 @@ class Client
      *
      * @return void
      */
-    public function setDefaultIcon($icon)
+    public function setDefaultIcon(string $icon)
     {
         $this->icon = $icon;
     }
@@ -243,7 +259,7 @@ class Client
      *
      * @return boolean
      */
-    public function getLinkNames()
+    public function getLinkNames(): bool
     {
         return $this->link_names;
     }
@@ -256,9 +272,9 @@ class Client
      *
      * @return void
      */
-    public function setLinkNames($value)
+    public function setLinkNames(bool $value)
     {
-        $this->link_names = (boolean) $value;
+        $this->link_names = $value;
     }
 
     /**
@@ -266,7 +282,7 @@ class Client
      *
      * @return boolean
      */
-    public function getUnfurlLinks()
+    public function getUnfurlLinks(): bool
     {
         return $this->unfurl_links;
     }
@@ -278,9 +294,9 @@ class Client
      *
      * @return void
      */
-    public function setUnfurlLinks($value)
+    public function setUnfurlLinks(bool $value)
     {
-        $this->unfurl_links = (boolean) $value;
+        $this->unfurl_links = $value;
     }
 
     /**
@@ -288,7 +304,7 @@ class Client
      *
      * @return boolean
      */
-    public function getUnfurlMedia()
+    public function getUnfurlMedia(): bool
     {
         return $this->unfurl_media;
     }
@@ -300,9 +316,9 @@ class Client
      *
      * @return void
      */
-    public function setUnfurlMedia($value)
+    public function setUnfurlMedia(bool $value)
     {
-        $this->unfurl_media = (boolean) $value;
+        $this->unfurl_media = $value;
     }
 
     /**
@@ -311,7 +327,7 @@ class Client
      *
      * @return boolean
      */
-    public function getAllowMarkdown()
+    public function getAllowMarkdown(): bool
     {
         return $this->allow_markdown;
     }
@@ -324,9 +340,9 @@ class Client
      *
      * @return void
      */
-    public function setAllowMarkdown($value)
+    public function setAllowMarkdown(bool $value)
     {
-        $this->allow_markdown = (boolean) $value;
+        $this->allow_markdown = $value;
     }
 
     /**
@@ -335,7 +351,7 @@ class Client
      *
      * @return array
      */
-    public function getMarkdownInAttachments()
+    public function getMarkdownInAttachments(): array
     {
         return $this->markdown_in_attachments;
     }
@@ -358,7 +374,7 @@ class Client
      *
      * @return \nguyenanhung\Slack\Message
      */
-    public function createMessage()
+    public function createMessage(): Message
     {
         $message = new Message($this);
 
@@ -376,11 +392,14 @@ class Client
     }
 
     /**
-     * Send a message
+     * Function sendMessage - Send a message
      *
      * @param \nguyenanhung\Slack\Message $message
      *
-     * @return void
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @author   : 713uk13m <dev@nguyenanhung.com>
+     * @copyright: 713uk13m <dev@nguyenanhung.com>
+     * @time     : 09/24/2021 59:22
      */
     public function sendMessage(Message $message)
     {
@@ -403,7 +422,7 @@ class Client
      *
      * @return array
      */
-    public function preparePayload(Message $message)
+    public function preparePayload(Message $message): array
     {
         $payload = [
             'text'         => $message->getText(),
@@ -431,7 +450,7 @@ class Client
      *
      * @return array
      */
-    protected function getAttachmentsAsArrays(Message $message)
+    protected function getAttachmentsAsArrays(Message $message): array
     {
         $attachments = [];
 

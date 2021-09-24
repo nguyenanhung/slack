@@ -51,11 +51,17 @@ class AttachmentField
      */
     public function __construct(array $attributes)
     {
-        if (isset($attributes['title'])) $this->setTitle($attributes['title']);
+        if (isset($attributes['title'])) {
+            $this->setTitle($attributes['title']);
+        }
 
-        if (isset($attributes['value'])) $this->setValue($attributes['value']);
+        if (isset($attributes['value'])) {
+            $this->setValue($attributes['value']);
+        }
 
-        if (isset($attributes['short'])) $this->setShort($attributes['short']);
+        if (isset($attributes['short'])) {
+            $this->setShort($attributes['short']);
+        }
     }
 
     /**
@@ -63,7 +69,7 @@ class AttachmentField
      *
      * @return string
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -75,7 +81,7 @@ class AttachmentField
      *
      * @return $this
      */
-    public function setTitle($title)
+    public function setTitle(string $title): AttachmentField
     {
         $this->title = $title;
 
@@ -87,7 +93,7 @@ class AttachmentField
      *
      * @return string
      */
-    public function getValue()
+    public function getValue(): string
     {
         return $this->value;
     }
@@ -99,7 +105,7 @@ class AttachmentField
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setValue(string $value): AttachmentField
     {
         $this->value = $value;
 
@@ -112,7 +118,7 @@ class AttachmentField
      *
      * @return boolean
      */
-    public function getShort()
+    public function getShort(): bool
     {
         return $this->short;
     }
@@ -125,7 +131,7 @@ class AttachmentField
      *
      * @return $this
      */
-    public function setShort($value)
+    public function setShort(string $value): AttachmentField
     {
         $this->short = (boolean) $value;
 
@@ -137,7 +143,7 @@ class AttachmentField
      *
      * @return array
      */
-    public function toArray()
+    public function toArray(): array
     {
         return [
             'title' => $this->getTitle(),

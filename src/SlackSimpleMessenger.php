@@ -56,7 +56,7 @@ class SlackSimpleMessenger
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 08/20/2021 18:21
      */
-    public function setSdkConfig($sdkConfig = array())
+    public function setSdkConfig(array $sdkConfig = array()): SlackSimpleMessenger
     {
         $this->sdkConfig = $sdkConfig;
 
@@ -87,7 +87,7 @@ class SlackSimpleMessenger
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 08/20/2021 19:36
      */
-    public function setClientAttributes($clientAttributes = array())
+    public function setClientAttributes(array $clientAttributes = array()): SlackSimpleMessenger
     {
         $this->clientAttributes = $clientAttributes;
 
@@ -117,7 +117,7 @@ class SlackSimpleMessenger
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 08/20/2021 19:40
      */
-    public function setIncomingUrl($incomingUrl = '')
+    public function setIncomingUrl(string $incomingUrl = ''): SlackSimpleMessenger
     {
         $this->incomingUrl = $incomingUrl;
 
@@ -147,7 +147,7 @@ class SlackSimpleMessenger
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 08/20/2021 19:44
      */
-    public function setTargetChannel($targetChannel = '')
+    public function setTargetChannel(string $targetChannel = ''): SlackSimpleMessenger
     {
         $this->targetChannel = $targetChannel;
 
@@ -177,7 +177,7 @@ class SlackSimpleMessenger
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 08/20/2021 19:50
      */
-    public function setContentMessage($contentMessage = '')
+    public function setContentMessage(string $contentMessage = ''): SlackSimpleMessenger
     {
         $this->contentMessage = $contentMessage;
 
@@ -207,7 +207,7 @@ class SlackSimpleMessenger
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 08/20/2021 19:54
      */
-    public function setAttachMessage($attachMessage)
+    public function setAttachMessage($attachMessage): SlackSimpleMessenger
     {
         $this->attachMessage = $attachMessage;
 
@@ -237,7 +237,7 @@ class SlackSimpleMessenger
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 08/20/2021 19:59
      */
-    public function setUseMarkdown($useMarkdown = FALSE)
+    public function setUseMarkdown(bool $useMarkdown = false): SlackSimpleMessenger
     {
         $this->useMarkdown = $useMarkdown;
 
@@ -264,7 +264,7 @@ class SlackSimpleMessenger
         if (!empty($this->contentMessage)) {
             $message->setText($this->contentMessage);
         }
-        if ($this->useMarkdown === TRUE) {
+        if ($this->useMarkdown === true) {
             $message->enableMarkdown();
         }
 

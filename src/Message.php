@@ -67,7 +67,7 @@ class Message
      *
      * @var boolean
      */
-    protected $allow_markdown = TRUE;
+    protected $allow_markdown = true;
 
     /**
      * The attachment fields which should be formatted with
@@ -113,7 +113,7 @@ class Message
      *
      * @return string
      */
-    public function getText()
+    public function getText(): string
     {
         return $this->text;
     }
@@ -125,7 +125,7 @@ class Message
      *
      * @return $this
      */
-    public function setText($text)
+    public function setText(string $text): Message
     {
         $this->text = $text;
 
@@ -137,7 +137,7 @@ class Message
      *
      * @return string
      */
-    public function getChannel()
+    public function getChannel(): string
     {
         return $this->channel;
     }
@@ -149,7 +149,7 @@ class Message
      *
      * @return $this
      */
-    public function setChannel($channel)
+    public function setChannel(string $channel): Message
     {
         $this->channel = $channel;
 
@@ -161,7 +161,7 @@ class Message
      *
      * @return string
      */
-    public function getUsername()
+    public function getUsername(): string
     {
         return $this->username;
     }
@@ -173,7 +173,7 @@ class Message
      *
      * @return $this
      */
-    public function setUsername($username)
+    public function setUsername(string $username): Message
     {
         $this->username = $username;
 
@@ -185,7 +185,7 @@ class Message
      *
      * @return string
      */
-    public function getIcon()
+    public function getIcon(): string
     {
         return $this->icon;
     }
@@ -200,15 +200,15 @@ class Message
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 3/6/20 16:16
      */
-    public function setIcon($icon)
+    public function setIcon(string $icon)
     {
-        if ($icon == NULL) {
-            $this->icon = $this->iconType = NULL;
+        if ($icon === null) {
+            $this->icon = $this->iconType = null;
 
             return;
         }
 
-        if (mb_substr($icon, 0, 1) == ":" && mb_substr($icon, mb_strlen($icon) - 1, 1) == ":") {
+        if (mb_strpos($icon, ":") === 0 && mb_substr($icon, mb_strlen($icon) - 1, 1) === ":") {
             $this->iconType = self::ICON_TYPE_EMOJI;
         } else {
             $this->iconType = self::ICON_TYPE_URL;
@@ -224,7 +224,7 @@ class Message
      *
      * @return string
      */
-    public function getIconType()
+    public function getIconType(): string
     {
         return $this->iconType;
     }
@@ -235,7 +235,7 @@ class Message
      *
      * @return boolean
      */
-    public function getAllowMarkdown()
+    public function getAllowMarkdown(): bool
     {
         return $this->allow_markdown;
     }
@@ -251,9 +251,9 @@ class Message
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 3/6/20 16:58
      */
-    public function setAllowMarkdown($value)
+    public function setAllowMarkdown(bool $value): Message
     {
-        $this->allow_markdown = (boolean) $value;
+        $this->allow_markdown = $value;
 
         return $this;
     }
@@ -263,9 +263,9 @@ class Message
      *
      * @return $this
      */
-    public function enableMarkdown()
+    public function enableMarkdown(): Message
     {
-        $this->setAllowMarkdown(TRUE);
+        $this->setAllowMarkdown(true);
 
         return $this;
     }
@@ -275,9 +275,9 @@ class Message
      *
      * @return $this
      */
-    public function disableMarkdown()
+    public function disableMarkdown(): Message
     {
-        $this->setAllowMarkdown(FALSE);
+        $this->setAllowMarkdown(false);
 
         return $this;
     }
@@ -288,7 +288,7 @@ class Message
      *
      * @return array
      */
-    public function getMarkdownInAttachments()
+    public function getMarkdownInAttachments(): array
     {
         return $this->markdown_in_attachments;
     }
@@ -301,7 +301,7 @@ class Message
      *
      * @return $this
      */
-    public function setMarkdownInAttachments(array $fields)
+    public function setMarkdownInAttachments(array $fields): Message
     {
         $this->markdown_in_attachments = $fields;
 
@@ -315,7 +315,7 @@ class Message
      *
      * @return $this
      */
-    public function from($username)
+    public function from(string $username): Message
     {
         $this->setUsername($username);
 
@@ -329,7 +329,7 @@ class Message
      *
      * @return $this
      */
-    public function to($channel)
+    public function to(string $channel): Message
     {
         $this->setChannel($channel);
 
@@ -343,7 +343,7 @@ class Message
      *
      * @return $this
      */
-    public function withIcon($icon)
+    public function withIcon(string $icon): Message
     {
         $this->setIcon($icon);
 
@@ -357,13 +357,15 @@ class Message
      *
      * @return $this
      */
-    public function attach($attachment)
+    public function attach($attachment): Message
     {
         if ($attachment instanceof Attachment) {
             $this->attachments[] = $attachment;
 
             return $this;
-        } elseif (is_array($attachment)) {
+        }
+
+        if (is_array($attachment)) {
             $attachmentObject = new Attachment($attachment);
 
             if (!isset($attachment['mrkdwn_in'])) {
@@ -383,7 +385,7 @@ class Message
      *
      * @return array
      */
-    public function getAttachments()
+    public function getAttachments(): array
     {
         return $this->attachments;
     }
@@ -398,7 +400,7 @@ class Message
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 3/6/20 18:01
      */
-    public function setAttachments(array $attachments)
+    public function setAttachments(array $attachments): Message
     {
         $this->clearAttachments();
 
@@ -414,7 +416,7 @@ class Message
      *
      * @return $this
      */
-    public function clearAttachments()
+    public function clearAttachments(): Message
     {
         $this->attachments = [];
 
@@ -422,15 +424,20 @@ class Message
     }
 
     /**
-     * Send the message
+     * Function Send the message
      *
-     * @param string $text The text to send
+     * @param string|null $text The text to send
      *
-     * @return void
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @author   : 713uk13m <dev@nguyenanhung.com>
+     * @copyright: 713uk13m <dev@nguyenanhung.com>
+     * @time     : 09/24/2021 03:34
      */
-    public function send($text = NULL)
+    public function send(string $text = null)
     {
-        if ($text) $this->setText($text);
+        if ($text) {
+            $this->setText($text);
+        }
 
         $this->client->sendMessage($this);
     }
