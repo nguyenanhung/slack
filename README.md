@@ -6,7 +6,7 @@ A simple PHP package for sending messages to [Slack](https://slack.com) with [in
 
 ## Requirements
 
-* PHP 5.4 or greater
+* PHP 5.5 or greater
 
 ## Version
 
