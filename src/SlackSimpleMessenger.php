@@ -257,6 +257,9 @@ class SlackSimpleMessenger
         $clientAttributes = is_array($this->clientAttributes) ? $this->clientAttributes : array();
         $client           = new Client($incomingUrl, $clientAttributes);
         $message          = new Message($client);
+        $message->setUsername((string)($clientAttributes['username'] ?? ''));
+        $message->setIcon((string)($clientAttributes['icon'] ?? ''));
+        $message->setChannel((string)($clientAttributes['channel'] ?? ''));
         $message->to($this->targetChannel);
         if (!empty($this->attachMessage)) {
             $message->attach($this->attachMessage);
