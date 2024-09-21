@@ -1,6 +1,11 @@
 # Slack
 
-[![Latest Stable Version](http://poser.pugx.org/nguyenanhung/slack/v)](https://packagist.org/packages/nguyenanhung/slack) [![Total Downloads](http://poser.pugx.org/nguyenanhung/slack/downloads)](https://packagist.org/packages/nguyenanhung/slack) [![Latest Unstable Version](http://poser.pugx.org/nguyenanhung/slack/v/unstable)](https://packagist.org/packages/nguyenanhung/slack) [![License](http://poser.pugx.org/nguyenanhung/slack/license)](https://packagist.org/packages/nguyenanhung/slack) [![PHP Version Require](http://poser.pugx.org/nguyenanhung/slack/require/php)](https://packagist.org/packages/nguyenanhung/slack)
+[![Latest Stable Version](https://img.shields.io/packagist/v/nguyenanhung/slack.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/slack)
+[![Total Downloads](https://img.shields.io/packagist/dt/nguyenanhung/slack.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/slack)
+[![Daily Downloads](https://img.shields.io/packagist/dd/nguyenanhung/slack.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/slack)
+[![Monthly Downloads](https://img.shields.io/packagist/dm/nguyenanhung/slack.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/slack)
+[![License](https://img.shields.io/packagist/l/nguyenanhung/slack.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/slack)
+[![PHP Version Require](https://img.shields.io/packagist/dependency-v/nguyenanhung/slack/php)](https://packagist.org/packages/nguyenanhung/slack)
 
 A simple PHP package for sending messages to [Slack](https://slack.com) with [incoming webhooks](https://my.slack.com/services/new/incoming-webhook), focussed on ease-of-use and elegant syntax. Includes Laravel 4 and 5 support out of the box.
 
